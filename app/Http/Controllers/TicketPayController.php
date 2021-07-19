@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Logic\EventUserLogic;
 use Illuminate\Http\Request;
-
+//A controller a feladata csak az adatok továbbítása a view felé
 class TicketPayController extends Controller
 {
 
