@@ -1,3 +1,31 @@
+<b><h3>Telepítési útmutató</h3></b>
+<p>Létre kell hozni egy adatbázist <b>event</b> néven és hozzá kell adni a root felhasználót jelszó nélkül. lehet beállítani neki jelszót csak akkor azt a .evn fájlba fel kell vezetni.</p>
+<p>adatbázis táblák létrehozása:</p>
+
+```cli
+php artisan migrate
+```
+<p>Táblák adatokkal való feltöltés</p>
+
+```cli
+php artisan db:seed
+```
+
+<b><h4>Rövid leírás</h4></b>
+
+<p>Ha létrehoztuk az adatbázist és feltöltöttük a kezdő adatokkal, akkor el kell indítani a szervert</p>
+
+```cli
+php artisan serv
+```
+
+<p>azután a http://127.0.0.1:8000/ url en érhető el az oldal.</p>
+
+<p>Regisztrációt követően már lehetőség nyílik az eseményekre jegyet venni.</p>
+<p>Az oldalon két menüpont található, az egyik az eseményeim ahol meglehet nézni, hogy mely eseményekre vásároltam jegyet, és a jegyvásárlás ahol tövábbi eseményekre lehet jegyet venni.</p>
+
+<p>Egy ember csak egy jegyet tud venni, ugyan arra az eseményre még egy jegyet nem vehet. Ezt adatbázis szinten korlátozom, mégpedig úgy, hogy az event_id és user_id páros unique.</p>
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
