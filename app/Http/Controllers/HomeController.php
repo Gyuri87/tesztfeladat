@@ -2,21 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
-use App\Models\User as Users;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Http\Request;
+use App\Http\Logic\EventLogic;
+use App\Http\Logic\UserLogic;
 
 class HomeController extends Controller
 {
+
+    private $userLogic;
+    private $eventLogic;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserLogic $userLogic, EventLogic $eventLogic)
     {
         $this->middleware('auth');
+        $this->userLogic = $userLogic;
+        $this->eventLogic = $eventLogic;
     }
 
     /**
@@ -27,8 +30,8 @@ class HomeController extends Controller
     public function index()
     {
         return view('home',[
-                'events' => Event::get(),
-                'users' => Users::get(),
+                'events' => $this->eventLogic->getEvent(),
+                'users' => $this->userLogic->getUsers(),
             ]);
     }
 }
